@@ -4,8 +4,8 @@ public class Candidato implements Comparable<Candidato> {
 
     private int id;
     private String nome;
-    private LocalDate dataNasc;
-    private Integer nota;
+    private LocalDate dataNasc; //data em java
+    private Integer nota; // facilitar comparacao
 
     public Candidato(int id, String nome, LocalDate dataNasc, int nota) {
         this.id = id;

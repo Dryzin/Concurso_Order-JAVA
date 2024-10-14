@@ -11,7 +11,7 @@ public class Main {
     public static List<Candidato> carregarCSV(String filePath) {
         List<Candidato> candidatos = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) { // trata de finalizar mesmo com excecao
             String line;
             boolean isFirstLine = true;
 
@@ -21,9 +21,11 @@ public class Main {
                     continue;
                 }
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // formatar data
 
                 String[] v = line.split(",");
+
+                // criacao de um candidato
                 int id = Integer.parseInt(v[0]);
                 String nome = v[1];
                 LocalDate dataNasc = LocalDate.parse(v[2], formatter);
@@ -43,7 +45,7 @@ public class Main {
         List<Candidato> candidatos = carregarCSV(filePath);
 
         InsertionSort iSort = new InsertionSort();
-        Candidato[] vetC = candidatos.toArray(new Candidato[0]);
+        Candidato[] vetC = candidatos.toArray(new Candidato[0]); // converte para array para insertSort
 
         iSort.sort(vetC);
 
